@@ -1,6 +1,8 @@
+import React from "react"
+
 export function UserUsername(props) {
-    return <div>
+    return <> {/*<React.Fragment>*/}
         <b>User name: </b>
         <span>{props.username}</span>
-    </div>
+        </> /*</React.Fragment> */
 }
