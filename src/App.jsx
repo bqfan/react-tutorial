@@ -7,9 +7,20 @@ function App() {
     return(
         <div>
             <h1>Root Component</h1>
-            <UserProfile age={20} isLoggedIn={false} favoriteFoods={[{
-                name: 'Sushi'
-            }]} callMe={callMe}/>
+            <UserProfile 
+                username="Bob"
+                age={20}
+                isLoggedIn={false}
+                favoriteFoods={[
+                {
+                    name: 'Sushi',
+                    id: 'Sushi'
+                },
+                {
+                    name: 'Pizza',
+                    id: 'Pizza'
+                },                
+            ]} callMe={callMe}/>
         </div>
     );
 }
