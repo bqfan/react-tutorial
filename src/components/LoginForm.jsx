@@ -1,5 +1,17 @@
 export function LoginForm() {
-    return <form>
+    return <form onSubmit={(e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const username = formData.get("username");
+        const password = formData.get("password");
+
+        // fetch("http://localhost:3001/api/login", {
+        //     body: {
+        //         username,
+        //         password,
+        //     },
+        // });
+    }}>
         <label htmlFor="username">Username</label>
         <br />
         <input
