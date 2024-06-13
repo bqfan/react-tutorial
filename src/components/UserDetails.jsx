@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import { useState} from "react"
 
-export function UserDetails(props) {
+export function UserDetails({user, setUsers}) {
     const [isEditing, setIsEditing] = useState(false);
-    const [username, setUsername] = useState(props.user.username)
-    const [email, setEmail] = useState(props.user.email)
+    const [username, setUsername] = useState(user.username)
+    const [email, setEmail] = useState(user.email)
     // console.log(isEditing);
     return (
         <div>
@@ -13,11 +13,25 @@ export function UserDetails(props) {
                     setIsEditing((currentState) => !currentState);
                 }}>Edit</button>
                 <button>Delete</button>
-                <button onClick={() => console.log(props.user)}>Save</button>
+                { isEditing && (
+                <button onClick={() => {
+                    setUsers((currentUsersState) => {
+                        return currentUsersState.map(
+                            (currentUser) => {
+                                // if (currentUser.id === user.id) {
+                                //     return {...currentUser, username, email};
+                                // } else return currentUser;
+                                return currentUser.id === user.id ? {...currentUser, username, email} :
+                                    currentUser;
+                        });
+                    });
+                    setIsEditing(false);
+                }}>Save</button>
+            )}
             </div>
-            <div key={props.user.id}>
+            <div key={user.id}>
                 <b>ID: </b>
-                <span>{props.user.id}</span>
+                <span>{user.id}</span>
                 <br />
                 <b>Username: </b>
                 {isEditing ? <input
@@ -30,7 +44,7 @@ export function UserDetails(props) {
                     onChange={(e) => {
                         setUsername(e.target.value);
                     }} /> :
-                    <span>{props.user.username}</span>}
+                    <span>{user.username}</span>}
                 <br />
                 <b>Email: </b>
                 {isEditing ? <input
@@ -43,7 +57,7 @@ export function UserDetails(props) {
                     onChange={(e) => {
                         setEmail(e.target.value);
                     }} /> :
-                    <span>{props.user.email}</span>}
+                    <span>{user.email}</span>}
                 <br />
             </div>
         </div>
