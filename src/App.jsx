@@ -1,4 +1,4 @@
-import { LoginForm } from "./components/LoginForm"
+import { RegisterForm } from "./components/RegisterForm"
 
 function App() {
     window.addEventListener("resize", (e) => {
@@ -6,7 +6,7 @@ function App() {
     });
 
     return <div>
-        <LoginForm />
+        <RegisterForm />
     </div>
 }
 
