@@ -10,17 +10,26 @@ function App() {
     }, [sync]);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchUsers() {
             try {
-                const response = await fetch("https://jsonplaceholder.typicode.com/users");
+                const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+                    signal: controller.signal
+                });
                 const json = await response.json();
                 console.log(json);
+                console.log(controller.signal);
             } catch (err) {
                 console.log(err);
             }
         }
 
         fetchUsers();
+        return () => {
+            controller.abort();
+            console.log(controller.signal);
+        }
         // fetch("https://jsonplaceholder.typicode.com/users",
         //     {method: "GET"}).then((response) => {
         //         // console.log(response);
