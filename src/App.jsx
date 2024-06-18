@@ -8,7 +8,6 @@ function App() {
         username: "user1",
         email: "user1@example.com",
         displayName: "User1",
-        setUserData: () => {},
     });
 
     return (

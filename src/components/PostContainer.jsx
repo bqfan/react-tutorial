@@ -9,10 +9,11 @@ export function PostContainer() {
     console.log(userContextData);
     return (
         <div>
-            <PostContent data={data} />
             <div>
-                {userContextData.displayName}
+                <span>PostContainer</span>
             </div>
+            <div>{userContextData.displayName}</div>
+            <PostContent data={data} />
         </div>
     )
 }
