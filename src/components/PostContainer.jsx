@@ -12,7 +12,7 @@ export function PostContainer() {
             <div>
                 <span>PostContainer</span>
             </div>
-            <div>{userContextData.displayName}</div>
+            <div>{userContextData.name}</div>
             <PostContent data={data} />
         </div>
     )
