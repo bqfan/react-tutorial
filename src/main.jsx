@@ -9,15 +9,17 @@ import { BlogPostsPage } from './pages/BlogPostsPage';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
-  },
-  {
-    path: '/users',
-    element: <UsersPage />
-  },
-  {
-    path: '/blogposts',
-    element: <BlogPostsPage />
+    element: <App />,
+    children: [
+      {
+        path: '/users',
+        element: <UsersPage />
+      },
+      {
+        path: '/blogposts',
+        element: <BlogPostsPage />
+      },
+    ]
   },
 ]);
 
