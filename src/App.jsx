@@ -41,7 +41,17 @@ function App() {
                 <input type="text" id="data" onChange={(e) => {
                     console.log(e.target.value);
                     if (e.target.value.length > 10) {
-                        navigate("/blogposts")
+                        navigate("/blogposts", {
+                            state: {
+                                posts: [
+                                    {
+                                        id: 1,
+                                        title: "Hello World",
+                                        content: "Welcome to my first post"
+                                    },
+                                ]
+                            }
+                        })
                     }
                 }} />
             </div>
