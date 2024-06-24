@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > should render users 1`] = `
+<div>
+  <div>
+    <div>
+      <button>
+        Edit
+      </button>
+      <button>
+        Delete
+      </button>
+    </div>
+    <div>
+      <b>
+        ID: 
+      </b>
+      <span>
+        1
+      </span>
+      <br />
+      <b>
+        Username: 
+      </b>
+      <span>
+        user1
+      </span>
+      <br />
+      <b>
+        Email: 
+      </b>
+      <span>
+        user1@example.com
+      </span>
+      <br />
+    </div>
+  </div>
+</div>
+`;
