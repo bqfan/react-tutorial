@@ -25,6 +25,8 @@ describe('App', () => {
             await userEvent.click(editButton);
             expect(screen.getByRole('textbox', { name: 'username' })).toBeInTheDocument();
             expect(screen.getByRole('textbox', { name: 'email' })).toBeInTheDocument();
+            expect(screen.getByLabelText('Username:')).toBeInTheDocument();
+            expect(screen.getByLabelText('Email:')).toBeInTheDocument();
         });
     })
 });

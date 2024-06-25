@@ -37,7 +37,7 @@ export function UserDetails({user, setUsers}) {
                 <b>ID: </b>
                 <span>{user.id}</span>
                 <br />
-                <b>Username: </b>
+                {isEditing ? (<label htmlFor='username'>Username: </label>) : <b>Username: </b>}
                 {isEditing ?
                 <input
                     aria-label="username"
@@ -52,7 +52,7 @@ export function UserDetails({user, setUsers}) {
                     }} /> :
                     <span>{user.username}</span>}
                 <br />
-                <b>Email: </b>
+                {isEditing ? (<label htmlFor='email'>Email: </label>) : <b>Email: </b>}
                 {isEditing ?
                 <input
                     aria-label="email"
