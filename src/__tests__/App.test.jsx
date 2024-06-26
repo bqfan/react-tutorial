@@ -84,4 +84,44 @@ describe('when there is only 2 user', () => {
         await userEvent.click(editBtn);
         expect(within(userDetails).getByRole("button", { name: 'Save' })).toBeInTheDocument;
     })
+
+    it('should edit 2nd username and save', async () => {
+        render(<App usersData={[
+            {
+                id: 1,
+                username: "user1",
+                email: "user1@example.com"
+            },
+            {
+                id: 2,
+                username: "user2",
+                email: "user2@example.com"
+            },
+        ]} />);
+        
+        const userDetails = screen.getByTestId('user-details-2');
+        expect(within(userDetails).getByText('user2')).toBeInTheDocument();
+        expect(within(userDetails).queryByText('user1')).toBeNull();
+
+        await userEvent.click(
+            within(userDetails).getByRole('button', { name: "Edit" })
+        );
+
+        await userEvent.type(
+            within(userDetails).getByLabelText('Username:'),
+            'edited'
+        );
+
+        await userEvent.click(
+            within(userDetails).getByRole('button', { name: 'Save' })
+        );
+
+        expect(
+            within(userDetails).queryByLabelText('Username:')
+        ).toBeNull();
+
+        expect(
+            within(userDetails).getByText('user2edited')
+        ).toBeInTheDocument();
+    })
 })
