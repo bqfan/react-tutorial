@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { UserDetails } from "./components/UserDetails";
+import { TestInputField } from "./components/TestInputField";
 // import { PostContainer } from "./components/PostContainer";
 // import { UserContext } from "./utils/contexts/UserContext";
 // import { useFetchUser } from "./utils/hooks/useFetchUser";
@@ -38,6 +39,7 @@ function App({ usersData }) {
     //     }, [loading, error, user]);
     return (
         <>
+            <TestInputField />
             {users.map((user) => (<UserDetails key={user.id} user={user} setUsers={setUsers} />))}
             {/* <nav>
                 <ul>
