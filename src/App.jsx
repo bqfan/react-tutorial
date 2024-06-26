@@ -6,7 +6,7 @@ import { UserDetails } from "./components/UserDetails";
 // import { Outlet, Link, useNavigate, Navigate } from 'react-router-dom';
 
 
-function App() {
+function App({ usersData }) {
     // const { user, loading, error } = useFetchUser(1);
     // console.log(user, loading, error);
 
@@ -16,19 +16,19 @@ function App() {
 
     // const navigate = useNavigate();
 
-    const [users, setUsers] = useState([
-        {
-            id: 1,
-            username: "user1",
-            email: "user1@example.com"
-        },
-        {
-            id: 2,
-            username: "user2",
-            email: "user2@example.com"
-        }
-    ]);
-
+    // const [users, setUsers] = useState([
+    //     {
+    //         id: 1,
+    //         username: "user1",
+    //         email: "user1@example.com"
+    //     },
+    //     {
+    //         id: 2,
+    //         username: "user2",
+    //         email: "user2@example.com"
+    //     }
+    // ]);
+    const [users, setUsers] = useState(usersData);
     // useEffect(() => {
     //     if (!loading && !error && user) {
     //         setUserData(user);
@@ -38,7 +38,7 @@ function App() {
     //     }, [loading, error, user]);
     return (
         <>
-            {users.map((user) => <UserDetails key={user.id} user={user} setUsers={setUsers} />)}
+            {users.map((user) => (<UserDetails key={user.id} user={user} setUsers={setUsers} />))}
             {/* <nav>
                 <ul>
                     <li>

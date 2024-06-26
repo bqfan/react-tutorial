@@ -7,12 +7,12 @@ export function UserDetails({user, setUsers}) {
     const [email, setEmail] = useState(user.email)
     // console.log(isEditing);
     return (
-        <div>
+        <div data-testid={`user-details-${user.id}`}>
             <div>
-                <button data-testid={`edit-btn-${user.id}`} onClick={() => {
+                <button onClick={() => {
                     setIsEditing((currentState) => !currentState);
                 }}>Edit</button>
-                <button  data-testid={`delete-btn-${user.id}`} onClick={() => {
+                <button onClick={() => {
                     setUsers((currentUserState) => currentUserState.filter(
                         (currentUser) => currentUser.id !== user.id
                     ));
