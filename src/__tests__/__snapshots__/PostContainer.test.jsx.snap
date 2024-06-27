@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`render context values > should match snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <h3>
+        PostContainer
+      </h3>
+    </div>
+    <div>
+      Display Name: 
+    </div>
+    <div>
+      ID: 
+      1001
+    </div>
+    <div>
+      Email: 
+      user1001@example.com
+    </div>
+    <div>
+      Username: 
+      user1001
+    </div>
+    <div>
+      <div>
+        <span>
+          PostContent
+        </span>
+      </div>
+      <div>
+        <div>
+          <h3>
+            PostContentButtons
+          </h3>
+        </div>
+        1001
+        <br />
+        <label
+          for="updateName"
+        >
+          Update Name: 
+        </label>
+        <input
+          id="updateName"
+          value=""
+        />
+        <button>
+          Update DisplayName
+        </button>
+      </div>
+      1001
+      User1001
+      user1001@example.com
+      user1001
+    </div>
+  </div>
+  ;
+</div>
+`;

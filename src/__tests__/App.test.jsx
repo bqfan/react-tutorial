@@ -124,4 +124,21 @@ describe('when there is only 2 user', () => {
             within(userDetails).getByText('user2edited')
         ).toBeInTheDocument();
     })
+});
+
+describe('Updating UserContext', () => {
+    it('should update displayName', async () => {
+        render(<App usersData={[]} />);
+
+        await userEvent.type(
+            screen.getByLabelText("Update Name:"),
+            "Updated Display Name"
+        );
+        
+        await userEvent.click(
+            screen.getByRole("button", "Update Display Name")
+        );
+
+        expect(screen.getByText("Display Name: Updated Display Name")).toBeInTheDocument();
+    })
 })

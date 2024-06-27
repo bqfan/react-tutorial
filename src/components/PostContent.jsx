@@ -12,7 +12,7 @@ export function PostContent() {
             </div>
             <PostContentButtons />
             {userContextData.id}
-            {userContextData.name}
+            {userContextData.displayName}
             {userContextData.email}
             {userContextData.username}
         </div>

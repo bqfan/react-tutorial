@@ -10,10 +10,13 @@ export function PostContainer() {
     return (
         <div>
             <div>
-                <span>PostContainer</span>
+                <h3>PostContainer</h3>
             </div>
-            <div>{userContextData.name}</div>
-            <PostContent data={data} />
+            <div>Display Name: {userContextData.name}</div>
+            <div>ID: {userContextData.id}</div>
+            <div>Email: {userContextData.email}</div>
+            <div>Username: {userContextData.username}</div>
+            <PostContent />
         </div>
     )
 }

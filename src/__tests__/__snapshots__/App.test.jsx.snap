@@ -1,5 +1,66 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`App > should render users 1`] = `<div />`;
-
-exports[`when there is only 1 user > should render users 1`] = `<div />`;
+exports[`when there is only 1 user > should render users 1`] = `
+<div>
+  <input
+    placeholder="Enter data..."
+    value="hello"
+  />
+  <div>
+    <div>
+      <div>
+        <h3>
+          PostContainer
+        </h3>
+      </div>
+      <div>
+        Display Name: 
+        User7000
+      </div>
+      <div>
+        ID: 
+        7000
+      </div>
+      <div>
+        Email: 
+        user7000@example.com
+      </div>
+      <div>
+        Username: 
+        user7000
+      </div>
+      <div>
+        <div>
+          <span>
+            PostContent
+          </span>
+        </div>
+        <div>
+          <div>
+            <h3>
+              PostContentButtons
+            </h3>
+          </div>
+          7000
+          <br />
+          <label
+            for="updateName"
+          >
+            Update Name: 
+          </label>
+          <input
+            id="updateName"
+            value=""
+          />
+          <button>
+            Update DisplayName
+          </button>
+        </div>
+        7000
+        user7000@example.com
+        user7000
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { UserDetails } from "./components/UserDetails";
 import { TestInputField } from "./components/TestInputField";
-// import { PostContainer } from "./components/PostContainer";
-// import { UserContext } from "./utils/contexts/UserContext";
-// import { useFetchUser } from "./utils/hooks/useFetchUser";
-// import { Outlet, Link, useNavigate, Navigate } from 'react-router-dom';
+import { PostContainer } from "./components/PostContainer";
+import { UserContext } from "./utils/contexts/UserContext";
+import { useFetchUser } from "./utils/hooks/useFetchUser";
+import { Outlet, Link, useNavigate, Navigate } from 'react-router-dom';
 
 
 function App({ usersData }) {
     // const { user, loading, error } = useFetchUser(1);
     // console.log(user, loading, error);
 
-    // const [userData, setUserData] = useState({
-
-    // });
+    const [userData, setUserData] = useState({
+        id: 7000,
+        username: "user7000",
+        email: "user7000@example.com",
+        name: "User7000"
+    });
 
     // const navigate = useNavigate();
 
@@ -30,6 +33,7 @@ function App({ usersData }) {
     //     }
     // ]);
     const [users, setUsers] = useState(usersData);
+
     // useEffect(() => {
     //     if (!loading && !error && user) {
     //         setUserData(user);
@@ -37,6 +41,7 @@ function App({ usersData }) {
     //     }
     // // }, [loading, error, user, navigate]);
     //     }, [loading, error, user]);
+
     return (
         <>
             <TestInputField />
@@ -72,13 +77,14 @@ function App({ usersData }) {
                         })
                     }
                 }} />
-            </div>
+            </div> */}
+
             <UserContext.Provider value={{ ...userData, setUserData }}>
                 <div>
-                    { loading ? "Loaing ..." : <PostContainer /> }
+                    <PostContainer />
                 </div>
             </UserContext.Provider>
-            <Outlet /> */}
+            <Outlet />
         </>
     )
 }
