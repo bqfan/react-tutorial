@@ -1,8 +1,10 @@
 import { expect, it, describe } from 'vitest';
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom";
 import App from "../App";
+import { server } from "../__mocks__/msw/server";
+import { http, httpResponse, delay } from "msw";
 
 describe('when there is only 1 user', () => {
     it('should render users', () => {
@@ -83,6 +85,31 @@ describe('when there is only 2 user', () => {
         const editBtn = within(userDetails).getByRole('button', { name: "Edit" });
         await userEvent.click(editBtn);
         expect(within(userDetails).getByRole("button", { name: 'Save' })).toBeInTheDocument;
+    })
+
+    describe('rendering context data', async () => {
+        it('should render correct Email', async () => {
+            server.use(
+                http.get("https://jsonplaceholder.typicode.com/users/*", async ({ params }) => {
+                    await delay(2000);
+                return Response.json({
+                    id: params.id,
+                    username: "josha",
+                    name: "josha",
+                    email: "josha@yahoo.com",
+                });
+            }),
+        );
+
+            render(<App usersData={[]} />);
+            // expect(await screen.findByText('Email: josh@josh.com', {}, { timeout: 10000 } ));
+            await waitFor(async () => 
+                expect(
+                    await screen.findByText('Email: josha@yahoo.com')
+                ).toBeInTheDocument()
+            );
+        })
+
     })
 
     it('should edit 2nd username and save', async () => {

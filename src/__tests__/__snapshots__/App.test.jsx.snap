@@ -15,19 +15,15 @@ exports[`when there is only 1 user > should render users 1`] = `
       </div>
       <div>
         Display Name: 
-        User7000
       </div>
       <div>
         ID: 
-        7000
       </div>
       <div>
         Email: 
-        user7000@example.com
       </div>
       <div>
         Username: 
-        user7000
       </div>
       <div>
         <div>
@@ -41,7 +37,6 @@ exports[`when there is only 1 user > should render users 1`] = `
               PostContentButtons
             </h3>
           </div>
-          7000
           <br />
           <label
             for="updateName"
@@ -56,9 +51,6 @@ exports[`when there is only 1 user > should render users 1`] = `
             Update DisplayName
           </button>
         </div>
-        7000
-        user7000@example.com
-        user7000
       </div>
     </div>
   </div>

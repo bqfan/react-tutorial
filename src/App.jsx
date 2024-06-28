@@ -8,15 +8,10 @@ import { Outlet, Link, useNavigate, Navigate } from 'react-router-dom';
 
 
 function App({ usersData }) {
-    // const { user, loading, error } = useFetchUser(1);
+    const { user, loading, error } = useFetchUser(1);
     // console.log(user, loading, error);
 
-    const [userData, setUserData] = useState({
-        id: 7000,
-        username: "user7000",
-        email: "user7000@example.com",
-        name: "User7000"
-    });
+    const [userData, setUserData] = useState();
 
     // const navigate = useNavigate();
 
@@ -34,19 +29,19 @@ function App({ usersData }) {
     // ]);
     const [users, setUsers] = useState(usersData);
 
-    // useEffect(() => {
-    //     if (!loading && !error && user) {
-    //         setUserData(user);
-    //         // navigate('/users');
-    //     }
-    // // }, [loading, error, user, navigate]);
-    //     }, [loading, error, user]);
+    useEffect(() => {
+        if (!loading && !error && user) {
+            setUserData(user);
+            // navigate('/users');
+        }
+    // }, [loading, error, user, navigate]);
+        }, [loading, error, user]);
 
     return (
         <>
             <TestInputField />
             {users.map((user) => (<UserDetails key={user.id} user={user} setUsers={setUsers} />))}
-            {/* <nav>
+            {<nav>
                 <ul>
                     <li>
                         <Link to="/">Home</Link>
@@ -59,7 +54,7 @@ function App({ usersData }) {
                     </li>
                 </ul>
             </nav>
-            <div>
+            /* <div>
                 <label htmlFor="data">Enter data</label>
                 <input type="text" id="data" onChange={(e) => {
                     console.log(e.target.value);

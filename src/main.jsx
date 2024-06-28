@@ -3,36 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "./globals.css";
-import { UsersPage } from './pages/UsersPage';
-import { BlogPostsPage } from './pages/BlogPostsPage';
+// import { UsersPage } from './pages/UsersPage';
+// import { BlogPostsPage } from './pages/BlogPostsPage';
+import { routes } from "./utils/constants";
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App usersData={[
-       {
-            id: 1,
-            username: "user1",
-            email: "user1@example.com"
-        },
-        {
-            id: 2,
-            username: "user2",
-            email: "user2@example.com"
-        }]    
-    }/>,
-    children: [
-      {
-        path: '/users',
-        element: <UsersPage />
-      },
-      {
-        path: '/blogposts',
-        element: <BlogPostsPage />
-      },
-    ]
-  },
-]);
+export const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
